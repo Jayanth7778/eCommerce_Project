@@ -64,7 +64,7 @@ product = (Product)context.getBean("product");
 	
 }
 	
-	
+/*	
 @Test
 	public void createProductTestCase()
 	
@@ -106,5 +106,5 @@ int actualSize = productDAO.list().size();
 	
 } 
 
-
+*/
 }

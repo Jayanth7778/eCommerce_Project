@@ -32,7 +32,7 @@ public class AddressDAOTestCase {
 		address = (Address) context.getBean("address");
 
 	}
-
+/*
 	@Test
 	public void createAddressTestCase() {
 		address.setId("SuveenAddress");
@@ -70,5 +70,5 @@ public class AddressDAOTestCase {
 		int actualSize = addressDAO.list().size();
 		assertEquals(2, actualSize);
 	}
-
+*/
 }

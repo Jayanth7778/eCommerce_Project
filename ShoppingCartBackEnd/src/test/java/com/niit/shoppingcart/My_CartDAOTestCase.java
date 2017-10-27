@@ -42,7 +42,7 @@ public class My_CartDAOTestCase {
 		my_Cart = (My_Cart)context.getBean("my_Cart");
 		
 	}
-	
+/*	
 	//@Test
 	public void createCartTestCase() {
 		my_Cart.setUser_id("Suveen");
@@ -66,5 +66,5 @@ public class My_CartDAOTestCase {
 		boolean flag = my_CartDAO.checkOut("myTest");
 		assertEquals("checkOutCartTestCase", flag, true);
 	}
-
+*/
 }

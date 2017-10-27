@@ -33,7 +33,7 @@ public class UserDAOTestCase {
 
 	}
 
-	@Test
+	/*@Test
 	public void createUserTestCase() {
 		user.setId("s");
 		user.setName("s");
@@ -72,5 +72,5 @@ public class UserDAOTestCase {
 		int actualSize = userDAO.list().size();
 		assertEquals(5, actualSize);
 	}
-
+*/
 }

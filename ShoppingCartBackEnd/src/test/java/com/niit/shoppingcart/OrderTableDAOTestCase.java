@@ -38,7 +38,7 @@ public class OrderTableDAOTestCase {
 	}
 	
 	
-	
+/*	
 	@Test
 	public void createOrderTableTestCase(){
 		//orderTable.setId(1);
@@ -53,5 +53,5 @@ public class OrderTableDAOTestCase {
 		int orderedSize = orderTableDAO.list("suveen").size();
 		assertEquals(1, orderedSize);
 	}
-
+*/
 }
