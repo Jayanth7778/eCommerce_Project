@@ -33,26 +33,26 @@ public class UserDAOTestCase {
 
 	}
 
-	/*@Test
+/*	@Test
 	public void createUserTestCase() {
-		user.setId("s");
-		user.setName("s");
-		user.setPassword("s");
-		user.setRole("ROLE_USER");
-		user.setContact("8686");
+		user.setId("krish");
+		user.setName("krish");
+		user.setPassword("krish");
+		user.setRole("ROLE_ADMIN");
+		user.setContact("9989988806");
 		boolean flag = userDAO.save(user);
 
 		assertEquals("createUserTestCase", true, flag);
 
 	}
 
-	@Test
+	/*@Test
 	public void updateUserTestCase() {
-		user.setId("Rakesh");
-		user.setName("Rakesh");
-		user.setPassword("Rakesh");
-		user.setRole("ROLE_USER");
-		user.setContact("8099748101");
+		user.setId("Uday");
+		user.setName("UdayK");
+		user.setPassword("Udaykk");
+		user.setRole("ROLE_ADMIN");
+		user.setContact("8877665544");
 		boolean flag = userDAO.update(user);
 
 		assertEquals("updateUserTestCase", true, flag);
@@ -62,7 +62,7 @@ public class UserDAOTestCase {
 	@Test
 	public void validateUserTestCase() {
 
-		boolean flag = userDAO.validate("Rakesh", "Rakesh");
+		boolean flag = userDAO.validate("Kiran", "Kiran");
 		assertEquals(true, flag);
 
 	}
@@ -71,6 +71,6 @@ public class UserDAOTestCase {
 	public void listAllUserTestCase() {
 		int actualSize = userDAO.list().size();
 		assertEquals(5, actualSize);
-	}
-*/
+	}*/
+
 }

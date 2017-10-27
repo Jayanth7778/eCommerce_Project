@@ -38,19 +38,19 @@ public class OrderTableDAOTestCase {
 	}
 	
 	
-/*	
+	/*
 	@Test
 	public void createOrderTableTestCase(){
-		//orderTable.setId(1);
-		orderTable.setUser_id("suveen");
-		//orderTable.setStatus("N");
+		orderTable.setId(1);
+		orderTable.setUser_id("Kiran");
+		orderTable.setStatus("N");
 		boolean flag = orderTableDAO.save(orderTable);
 		assertEquals("createOrderTableTestCase", true, flag);
 	}
 	
 	@Test
 	public void listTestCase(){
-		int orderedSize = orderTableDAO.list("suveen").size();
+		int orderedSize = orderTableDAO.list("Kiran").size();
 		assertEquals(1, orderedSize);
 	}
 */

@@ -42,29 +42,24 @@ public class My_CartDAOTestCase {
 		my_Cart = (My_Cart)context.getBean("my_Cart");
 		
 	}
-/*	
-	//@Test
+	
+/*	@Test
 	public void createCartTestCase() {
-		my_Cart.setUser_id("Suveen");
-		my_Cart.setPrice(10000);
-		my_Cart.setProduct_name("Samsung S8 256gb");
+		my_Cart.setUser_id("Kiran");
+		my_Cart.setPrice(15000);
+		my_Cart.setProduct_name("Moto G5 Plus");
 		
 		boolean flag = my_CartDAO.save(my_Cart);
 		
 		assertEquals("createCartTestCase",true,flag);
 	}
 	
-	//@Test
+	@Test
 	public void deleteCartTestCase(){
-		boolean flag = my_CartDAO.deleteAllProductsInCart("suveen");
+		boolean flag = my_CartDAO.deleteAllProductsInCart("Kiran");
 		
 		assertEquals(true, flag);
 	}
 	
-	@Test
-	public void checkOutCartTestCase(){
-		boolean flag = my_CartDAO.checkOut("myTest");
-		assertEquals("checkOutCartTestCase", flag, true);
-	}
 */
 }

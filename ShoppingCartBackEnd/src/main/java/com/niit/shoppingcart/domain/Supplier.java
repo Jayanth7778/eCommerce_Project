@@ -16,7 +16,7 @@ public class Supplier {
 	@Id
 	private String id;
 	private String name;
-	private String description;
+	private String address;
 
 	@OneToMany(mappedBy = "supplier", fetch = FetchType.EAGER)
 	private Set<Product> products;
@@ -45,12 +45,13 @@ public class Supplier {
 		this.name = name;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setAddress(String address) {
+		this.address = address;
 	}
+
 
 }

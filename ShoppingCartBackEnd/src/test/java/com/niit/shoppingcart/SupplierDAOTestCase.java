@@ -35,11 +35,11 @@ public class SupplierDAOTestCase {
 
 	}
 
-	/*@Test
+/*	@Test
 	public void createSupplierTestCase() {
-		supplier.setId("BigC");
-		supplier.setName("Sangeetha Mobiles");
-		supplier.setDescription("Large Collection of Mobiles");
+		supplier.setId("SP_Univercell");
+		supplier.setName("Univercell Mobiles");
+		supplier.setAddress("Anantapur");
 
 		boolean flag = supplierDAO.save(supplier);
 
@@ -49,9 +49,9 @@ public class SupplierDAOTestCase {
 
 	@Test
 	public void updateSupplierTestCase() {
-		supplier.setId("BigC");
-		supplier.setName("BigC Mobiles");
-		supplier.setDescription("Large Collection of Mobiles");
+		supplier.setId("SP_Reliance");
+		supplier.setName("Reliance Mobiles");
+		supplier.setAddress("Bangalore");
 
 		boolean flag = supplierDAO.update(supplier);
 
@@ -63,6 +63,6 @@ public class SupplierDAOTestCase {
 	public void listAllSupplierTestCase() {
 		int actualSize = supplierDAO.list().size();
 		assertEquals(6, actualSize);
-	}
-*/
+	}*/
+
 }

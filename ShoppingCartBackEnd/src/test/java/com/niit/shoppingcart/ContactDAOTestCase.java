@@ -34,13 +34,13 @@ public class ContactDAOTestCase {
 		contact = (Contact) context.getBean("contact");
 
 	}
-/*
-	@Test
+
+/*	@Test
 	public void createContactTestCase() {
-		contact.setName("Suveen Kumar Vundavalli");
-		contact.setEmail("suveenkumar.vundavalli@gmail.com");
-		contact.setContact("8686242020");
-		contact.setMessage("Original : You designed a very good web application");
+		contact.setName("T Pradeep Reddy");
+		contact.setEmail("pradeeptv99@gmail.com");
+		contact.setContact("7799881234");
+		contact.setMessage("Original : You designed a  web application");
 
 		boolean flag = contactDAO.save(contact);
 
@@ -61,6 +61,6 @@ public class ContactDAOTestCase {
 	public void listAllContactTestCase() {
 		int actualSize = contactDAO.list().size();
 		assertEquals(1, actualSize);
-	}
-*/
+	}*/
+
 }

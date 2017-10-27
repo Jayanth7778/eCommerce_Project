@@ -27,6 +27,8 @@ public class My_CartDAOImpl implements My_CartDAO {
 		try {
 			sessionFactory.getCurrentSession().save(my_Cart);
 		} catch (Exception e) {
+			// if any excpetion comes during execute of try block, catch will
+			// excute
 			e.printStackTrace();
 			return false;
 		}
@@ -37,6 +39,8 @@ public class My_CartDAOImpl implements My_CartDAO {
 		try {
 			sessionFactory.getCurrentSession().update(my_Cart);
 		} catch (Exception e) {
+			// if any excpetion comes during execute of try block, catch will
+			// excute
 			e.printStackTrace();
 			return false;
 		}
@@ -44,14 +48,15 @@ public class My_CartDAOImpl implements My_CartDAO {
 	}
 
 	public List<My_Cart> list(String userID) {
-		return  sessionFactory.getCurrentSession().createQuery("from My_Cart where user_id=? and status = 'N'").setString(0, userID).list();
+		return  sessionFactory.getCurrentSession().createQuery("from My_Cart where user_id=?").setString(0, userID).list();
 	}
 
 	public double getTotalAmount(String userID) {
-		return (Double) sessionFactory.getCurrentSession().createQuery("select sum(price) from My_Cart where user_Id=? and status = 'N'").setString(0, userID).uniqueResult();
+		return (Double) sessionFactory.getCurrentSession().createQuery("select sum(price) from My_Cart where user_Id=?").setString(0, userID).uniqueResult();
 	}
 
 	public boolean delete(int id) {
+		// TODO Auto-generated method stub
 		try {
 			sessionFactory.getCurrentSession().delete(getCartById(id));
 		} catch (Exception e) {
@@ -69,7 +74,7 @@ public class My_CartDAOImpl implements My_CartDAO {
 
 	public boolean deleteAllProductsInCart(String user_id) {
 		try {
-			sessionFactory.getCurrentSession().createQuery("delete from My_Cart where user_id = ? and status = 'N'").setString(0, user_id).executeUpdate();
+			sessionFactory.getCurrentSession().createQuery("delete from My_Cart where user_id = ?").setString(0, user_id).executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -77,16 +82,6 @@ public class My_CartDAOImpl implements My_CartDAO {
 		}
 		return true;
 		
-	}
-
-	public boolean checkOut(String user_id) {
-		try {
-			sessionFactory.getCurrentSession().createQuery("update My_Cart set status = 'S' where user_id = ? and status = 'N'").setString(0, user_id).executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-		return true;
 	}
 
 	

@@ -35,13 +35,13 @@ public class AddressDAOTestCase {
 /*
 	@Test
 	public void createAddressTestCase() {
-		address.setId("SuveenAddress");
-		address.setUser_id("Suveen");
-		address.setH_no("2-46-11");
-		address.setStreet("Villa Vari Street, Venkat Nagar");
-		address.setCity("Kakinada");
+		address.setId("UdayAddress");
+		address.setUser_id("Kiran");
+		address.setH_no("4-1-185");
+		address.setStreet("6th Road");
+		address.setCity("Anantapur");
 		address.setCountry("India");
-		address.setPin("533003");
+		address.setPin("515001");
 
 		boolean flag = addressDAO.save(address);
 
@@ -49,15 +49,15 @@ public class AddressDAOTestCase {
 
 	}
 
-	@Test
+	/*@Test
 	public void updateAddressTestCase() {
-		address.setId("SwethaAddress");
-		address.setUser_id("Suveen");
-		address.setH_no("2-46-11");
-		address.setStreet("Villa Vari Street, Venkat Nagar");
-		address.setCity("Kakinada");
+		address.setId("KiranAddress");
+		address.setUser_id("Kiran");
+		address.setH_no("4-1-185");
+		address.setStreet("6th Road");
+		address.setCity("Anantapur");
 		address.setCountry("India");
-		address.setPin("533003");
+		address.setPin("515001");
 
 		boolean flag = addressDAO.update(address);
 
@@ -69,6 +69,6 @@ public class AddressDAOTestCase {
 	public void listAllAddressTestCase() {
 		int actualSize = addressDAO.list().size();
 		assertEquals(2, actualSize);
-	}
-*/
+	}*/
+
 }
