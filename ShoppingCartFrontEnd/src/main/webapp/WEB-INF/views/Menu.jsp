@@ -10,17 +10,23 @@
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top" id="my-navbar">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
-				</button>
-				<a href="Home" class="navbar-brand">
-					<img src="<c:url value="/resources/images/mkskart.jpg"/>" style="max-height: 50px; margin-top: -15px;" alt="logo" />
-				</a>
-			</div>
+	<div class="container-fluid">
+	<div class="navbar-header">
+	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+	<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+	</button>
+	
+	<a href="Home" class="navbar-brand">
+	<img src="<c:url value="/resources/images/mkskart.jpg"/>" style="max-height: 50px; margin-top: -15px;" alt="logo" />
+	</a>
+	</div>
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
+				
+				<ul class="nav navbar-nav">
+				<li> <a href="#"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+				</ul>
+				
 					<c:if test="${isUserLoggedIn=='true'}"> 
 						<!--<c:url var="Logout" value="/j_spring_security_Logout"/>--> 
 						<li><a href="myCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> My Cart <span class="label label-info">${cartSize}</span></a></li>
@@ -47,18 +53,18 @@
 
 
 					<c:forEach var="category" items="${categoryList}">
-						<li class="dropdown"><a href="showProductByCategory/${category.id}"> ${category.name}
-								<span class="caret"></span>
-							</a>
+						<li class="dropdown">
+						<a href="showProductByCategory/${category.id}"> ${category.name}
+						<span class="caret"></span>
+						</a>
 							<ul class="dropdown-menu scrollable-menu" role="menu">
+							
 								<c:forEach var="product" items="${productList}">
 									<c:if test="${product.category_id == category.id}">
-										<li><a href="viewProduct/${product.id}">${product.name}</a></li>
+									<li><a href="viewProduct/${product.id}">${product.name}</a></li>
 									</c:if>
-
 									<!-- <li><a href="#">${product.name}</a></li> -->
 								</c:forEach>
-
 
 							</ul></li>
 					</c:forEach>
@@ -66,12 +72,13 @@
 					<li><a href="ContactUs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Contact Us </a></li>
 
 				</ul>
+			
 			</div>
+		
 		</div>
+	
 	</nav>
 
-
-
-
 </body>
+
 </html>
