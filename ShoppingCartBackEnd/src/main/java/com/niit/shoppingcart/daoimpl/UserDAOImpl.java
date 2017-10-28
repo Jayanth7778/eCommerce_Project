@@ -6,7 +6,6 @@ import javax.transaction.Transactional;
 
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -17,7 +16,8 @@ import com.niit.shoppingcart.domain.User;
 
 @Repository("userDAO")
 @Transactional
-public class UserDAOImpl implements UserDAO {
+public class UserDAOImpl implements UserDAO
+{
 	
 	//Transaction tx;
 	@Autowired
@@ -33,12 +33,15 @@ public class UserDAOImpl implements UserDAO {
 	
 	
 
-	public boolean save(User user) {
+	public boolean save(User user)
+	{
 		try
 		{
-		sessionFactory.getCurrentSession().save(user);
-		//tx = sessionFactory.getCurrentSession().getTransaction();
-		}catch (Exception e) {
+			sessionFactory.getCurrentSession().save(user);
+			//tx = sessionFactory.getCurrentSession().getTransaction();
+		}
+		catch (Exception e)
+		{
 			//if any excpetion comes during execute of try block, catch will excute
 			e.printStackTrace();
 			return false;
@@ -46,11 +49,14 @@ public class UserDAOImpl implements UserDAO {
 		return true;
 	}
 	
-	public boolean update(User user) {
+	public boolean update(User user)
+	{
 		try
 		{
-		sessionFactory.getCurrentSession().update(user);
-		}catch (Exception e) {
+			sessionFactory.getCurrentSession().update(user);
+		}
+		catch (Exception e)
+		{
 			//if any exception comes during execute of try block, catch will execute
 			e.printStackTrace();
 			return false;
@@ -59,12 +65,11 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	
-	public boolean validate(String id, String password) {
-		
-		
-	Query query=	 sessionFactory.getCurrentSession().createQuery(" from User where id = ? and password = ?");
-	query.setString(0, id);     //actually the index will start from zero  - will get once exception.
-	query.setString(1, password);
+	public boolean validate(String id, String password)
+	{
+		Query query=sessionFactory.getCurrentSession().createQuery(" from User where id = ? and password = ?");
+		query.setString(0, id);     //actually the index will start from zero  - will get once exception.
+		query.setString(1, password);
 	
 	 if(  query.uniqueResult()  == null)
 	 {
@@ -79,15 +84,14 @@ public class UserDAOImpl implements UserDAO {
 	
 	}
 
-	public List<User> list() {
-		
-		
+	@SuppressWarnings("unchecked")
+	public List<User> list()
+	{
 		return  sessionFactory.getCurrentSession().createQuery("from User").list();
 	}
 
-	public User get(String id) {
-		
-		
+	public User get(String id)
+	{
 	  return 	(User)  sessionFactory.getCurrentSession().get(User.class, id);
 		
 	}
