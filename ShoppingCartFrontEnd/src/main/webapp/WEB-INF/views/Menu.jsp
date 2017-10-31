@@ -23,10 +23,6 @@
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
 				
-				<ul class="nav navbar-nav">
-				<li> <a href="#"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
-				</ul>
-				
 					<c:if test="${isUserLoggedIn=='true'}"> 
 						<!--<c:url var="Logout" value="/j_spring_security_Logout"/>--> 
 						<li><a href="myCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> My Cart <span class="label label-info">${cartSize}</span></a></li>

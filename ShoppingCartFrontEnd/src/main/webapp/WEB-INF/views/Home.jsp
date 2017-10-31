@@ -37,16 +37,6 @@
 		<marquee>${message}</marquee>
 	</div>
 
-	<!-- Display Home Control Panel -->
-	<c:if test="${isUserClickedHome=='true'}">
-		<jsp:include page="Carousel.jsp"></jsp:include>
-	</c:if>
-	
-	<!-- Display Admin Control Panel -->
-	<c:if test="${isUserClickedHome=='true'}">
-		<jsp:include page="Carousel.jsp"></jsp:include>
-	</c:if>
-
 	<!-- Display Admin Control Panel -->
 	<c:if test="${isAdmin=='true'}">
 		<jsp:include page="admin/adminHome.jsp"></jsp:include>
