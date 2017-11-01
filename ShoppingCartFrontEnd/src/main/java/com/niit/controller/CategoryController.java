@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,7 +19,8 @@ import com.niit.shoppingcart.domain.Category;
 import com.niit.shoppingcart.domain.Product;
 
 @Controller
-public class CategoryController {
+public class CategoryController
+{
 
 	// Logger Statements
 	// SLF4J - Simple Logging Facade for Java
@@ -42,8 +42,8 @@ public class CategoryController {
 
 	// crud category
 	@RequestMapping("/manage-category-add")
-	public ModelAndView createCategory(@RequestParam("cId") String id, @RequestParam("cName") String name,
-			@RequestParam("cDescription") String description) {
+	public ModelAndView createCategory(@RequestParam("cId") String id, @RequestParam("cName") String name,@RequestParam("cDescription") String description)
+	{
 		log.debug("Starting of create category");
 		ModelAndView mv = new ModelAndView("Home");
 
@@ -54,10 +54,13 @@ public class CategoryController {
 		mv.addObject("isAdminClickedCategories", "true");
 		mv.addObject("isAdmin", "true");
 
-		if (categoryDAO.getCategoryById(id) != null) {
+		if (categoryDAO.getCategoryById(id) != null) 
+		{
 			mv.addObject("cMessage", "Category already exists with id : " + id);
 			return mv;
-		} else {
+		} 
+		else 
+		{
 			categoryDAO.save(category);
 			mv.addObject("cMessage", "Category creation success with id : " + id);
 
@@ -80,7 +83,8 @@ public class CategoryController {
 
 	// attach data to url we use @PathVariable
 	@RequestMapping("/manage-category-delete/{id}")
-	public ModelAndView deleteCategory(@PathVariable("id") String id) {
+	public ModelAndView deleteCategory(@PathVariable("id") String id)
+	{
 		
 		log.debug("Starting of delete Category");
 		log.info("You are about to delete a category with id : " + id);
@@ -88,18 +92,25 @@ public class CategoryController {
 		ModelAndView mv = new ModelAndView("redirect:/manageCategories");
 		//Check whether products are there for this category or not
 		int noOfProducts = productDAO.getAllProductsByCategoryId(id).size();
-		if(noOfProducts != 0){
+		
+		if(noOfProducts != 0)
+		{
 			log.debug("Few products are there under this category, you cannot delete!");
 			session.setAttribute("categoryMessage", "There are "+noOfProducts+" products under this "+id+" category, you cannot delete!");
 			return mv;
 		}
 		
 		
-		if (categoryDAO.delete(id) == true) {
+		if (categoryDAO.delete(id) == true)
+		{
 			mv.addObject("categoryMessage", "Successfullly deleted");
-		} else {
+		}
+		
+		else
+		{
 			mv.addObject("categoryMessage", "Failed to delete");
 		}
+		
 		log.debug("Ending of delete Category");
 		
 		return mv;
@@ -107,7 +118,8 @@ public class CategoryController {
 	
 	//Edit category
 	@RequestMapping("/manage-category-edit/{id}")
-	public ModelAndView editCategory(@PathVariable("id") String id){
+	public ModelAndView editCategory(@PathVariable("id") String id)
+	{
 		log.debug("Starting of editCategory");
 		log.info("You are about to edit a category with id : " + id);
 		
@@ -127,8 +139,8 @@ public class CategoryController {
 	}
 	
 	@RequestMapping("/manage-category-update")
-	public ModelAndView updateCategory(@RequestParam("cId") String id, @RequestParam("cName") String name,
-			@RequestParam("cDescription") String description) {
+	public ModelAndView updateCategory(@RequestParam("cId") String id, @RequestParam("cName") String name,@RequestParam("cDescription") String description) 
+	{
 		log.debug("Starting of updateCategory");
 		ModelAndView mv = new ModelAndView("redirect:/manageCategories");
 		session.setAttribute("isAdminClickedManageCategoryEdit", "false");	
@@ -140,10 +152,14 @@ public class CategoryController {
 		mv.addObject("isAdminClickedCategories", "true");
 		mv.addObject("isAdmin", "true");
 
-		if (categoryDAO.getCategoryById(id) == null) {
+		if (categoryDAO.getCategoryById(id) == null)
+		{
 			mv.addObject("cMessage", "Category does not exists with id : " + id);
 			return mv;
-		} else {
+		} 
+		
+		else 
+		{
 			categoryDAO.update(category);
 			mv.addObject("cMessage", "Category updated success with id : " + id);
 

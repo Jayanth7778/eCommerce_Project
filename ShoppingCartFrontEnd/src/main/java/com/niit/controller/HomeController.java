@@ -23,7 +23,8 @@ import com.niit.shoppingcart.domain.Product;
 import com.niit.shoppingcart.domain.Supplier;
 
 @Controller
-public class HomeController {
+public class HomeController
+{
 	private static Logger log = LoggerFactory.getLogger(ProductController.class);
 
 	// @Autowired User
@@ -56,7 +57,8 @@ public class HomeController {
 	My_CartDAO myCartDAO;
 
 	@RequestMapping("/")
-	public ModelAndView goToHome() {
+	public ModelAndView goToHome()
+	{
 		ModelAndView mv = new ModelAndView("Home");
 		mv.addObject("message", "Thank you for visiting Shopping Cart! <br>");
 		mv.addObject("isUserAtHomePage", "true");
@@ -92,7 +94,8 @@ public class HomeController {
 	
 
 	@RequestMapping("/Home")
-	public ModelAndView goToHomeButton() {
+	public ModelAndView goToHomeButton()
+	{
 		ModelAndView mv = new ModelAndView("Home");
 		mv.addObject("message", "Thank you for visiting Shopping Cart! <br>");
 		mv.addObject("isUserAtHomePage", "true");
@@ -122,8 +125,10 @@ public class HomeController {
 		// return "Home";
 	}
 
+	@SuppressWarnings("unused")
 	@RequestMapping("/Login")
-	public String loginPage(Model model) {
+	public String loginPage(Model model)
+	{
 		model.addAttribute("isUserClickedLogin", "true");
 		model.addAttribute("isUserAtHomePage", "false");
 
@@ -133,9 +138,11 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/SignOut")
-	public ModelAndView userSignOut() {
+	public ModelAndView userSignOut() 
+	{
 		log.debug("Signout Initiated");
 		ModelAndView mv = new ModelAndView("redirect:/");
+		
 		session.setAttribute("isUserLoggedIn", "false");
 		session.setAttribute("isAdmin", "false");
 
@@ -143,20 +150,23 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/RegistrationPage")
-	public String registerPage(Model model) {
+	public String registerPage(Model model)
+	{
 		model.addAttribute("isUserClickedRegistration", "true");
 		model.addAttribute("isUserAtHomePage", "false");
 		return "Home";
 	}
 
 	@RequestMapping("/MainPage")
-	public String mainPage(Model model) {
+	public String mainPage(Model model) 
+	{
 		model.addAttribute("isUserClickedMain", "true");
 		return "Home";
 	}
 
 	@RequestMapping("/ContactUs")
-	public String contactUsPage(Model model) {
+	public String contactUsPage(Model model)
+	{
 		model.addAttribute("isUserClickedContactUs", "true");
 		model.addAttribute("isUserAtHomePage", "false");
 		return "Home";

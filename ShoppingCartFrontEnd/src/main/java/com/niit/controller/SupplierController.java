@@ -9,19 +9,18 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.shoppingcart.dao.ProductDAO;
 import com.niit.shoppingcart.dao.SupplierDAO;
-import com.niit.shoppingcart.domain.Category;
 import com.niit.shoppingcart.domain.Product;
 import com.niit.shoppingcart.domain.Supplier;
 
 @Controller
-public class SupplierController {
+public class SupplierController
+{
 
 	private static Logger log = LoggerFactory.getLogger(SupplierController.class);
 
@@ -37,9 +36,11 @@ public class SupplierController {
 	Product product;
 
 	// crud supplier
+	
 	@RequestMapping("/manage-supplier-add")
-	public ModelAndView createSupplier(@RequestParam("sId") String id, @RequestParam("sName") String name,
-			@RequestParam("sAddress") String address) {
+	
+	public ModelAndView createSupplier(@RequestParam("sId") String id, @RequestParam("sName") String name,@RequestParam("sAddress") String address)
+	{
 		ModelAndView mv = new ModelAndView("Home");
 
 		supplier.setId(id);
@@ -50,10 +51,13 @@ public class SupplierController {
 		mv.addObject("isAdmin", "true");
 		session.setAttribute("isUserLoggedIn", "false");
 
-		if (supplierDAO.getSupplierById(id) != null) {
+		if (supplierDAO.getSupplierById(id) != null)
+		{
 			mv.addObject("sMessage", "Supplier already exists with id : " + id);
 			return mv;
-		} else {
+		} 
+		else 
+		{
 			supplierDAO.save(supplier);
 			mv.addObject("sMessage", "Supplier creation success with id : " + id);
 
@@ -71,7 +75,8 @@ public class SupplierController {
 	}
 
 	@RequestMapping("/manage-supplier-delete/{id}")
-	public ModelAndView deleteSupplier(@PathVariable("id") String id) {
+	public ModelAndView deleteSupplier(@PathVariable("id") String id) 
+	{
 
 		log.debug("Starting of delete Supplier");
 		log.info("You are about to delete a supplier with id : " + id);
@@ -79,14 +84,20 @@ public class SupplierController {
 		ModelAndView mv = new ModelAndView("redirect:/manageSuppliers");
 
 		int noOfProducts = productDAO.getAllProductsBySupplierId(id).size();
-		if (noOfProducts != 0) {
+		
+		if (noOfProducts != 0)
+		{
 			log.debug("Few products are there by this seller, you cannot delete!");
 			session.setAttribute("supplierMessage", "There are " + noOfProducts + " products under this " + id + " seller, you cannot delete!");
 			return mv;
 		}
-		if (supplierDAO.delete(id) == true) {
+		
+		if (supplierDAO.delete(id) == true) 
+		{
 			mv.addObject("message", "Successfullly deleted");
-		} else {
+		}
+		else 
+		{
 			mv.addObject("message", "Failed to delete");
 		}
 		log.debug("Ending of delete Supplier");
@@ -95,7 +106,8 @@ public class SupplierController {
 	}
 
 	@RequestMapping("/manage-supplier-edit/{id}")
-	public ModelAndView editSupplier(@PathVariable("id") String id) {
+	public ModelAndView editSupplier(@PathVariable("id") String id)
+	{
 		log.debug("Starting of editSupplier");
 		log.info("You are about to edit a supplier with id : " + id);
 
@@ -112,8 +124,8 @@ public class SupplierController {
 	}
 
 	@RequestMapping("/manage-supplier-update")
-	public ModelAndView updateSupplier(@RequestParam("cId") String id, @RequestParam("cName") String name,
-			@RequestParam("cAddress") String address) {
+	public ModelAndView updateSupplier(@RequestParam("cId") String id, @RequestParam("cName") String name,@RequestParam("cAddress") String address)
+	{
 		log.debug("Starting of updateSupplier");
 		ModelAndView mv = new ModelAndView("redirect:/manageSuppliers");
 		session.setAttribute("isAdminClickedManageSupplierEdit", "false");
@@ -125,10 +137,13 @@ public class SupplierController {
 		mv.addObject("isAdminClickedSuppliers", "true");
 		mv.addObject("isAdmin", "true");
 
-		if (supplierDAO.getSupplierById(id) == null) {
+		if (supplierDAO.getSupplierById(id) == null)
+		{
 			mv.addObject("cMessage", "Supplier does not exists with id : " + id);
 			return mv;
-		} else {
+		} 
+		else 
+		{
 			supplierDAO.update(supplier);
 			mv.addObject("cMessage", "Supplier updated success with id : " + id);
 
