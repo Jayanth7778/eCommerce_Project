@@ -15,7 +15,8 @@ import com.niit.shoppingcart.domain.Contact;
 
 @Repository("contactDAO")
 @Transactional
-public class ContactDAOImpl implements ContactDAO {
+public class ContactDAOImpl implements ContactDAO 
+{
 	
 	//Transaction tx;
 	@Autowired
@@ -30,12 +31,33 @@ public class ContactDAOImpl implements ContactDAO {
 	}
 
 
-	public boolean save(Contact contact) {
+	public boolean save(Contact contact)
+	{
 		try
 		{
-		sessionFactory.getCurrentSession().save(contact);
-		//tx = sessionFactory.getCurrentSession().getTransaction();
-		}catch (Exception e) {
+			sessionFactory.getCurrentSession().save(contact);
+			//tx = sessionFactory.getCurrentSession().getTransaction();
+		}
+		catch (Exception e)
+		{
+			//if any excpetion comes during execute of try block, catch will excute
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
+	}
+
+
+	public boolean delete(int id)
+	{
+		try
+		{
+			sessionFactory.getCurrentSession().delete(getContactById(id));
+			//tx = sessionFactory.getCurrentSession().getTransaction();
+		}
+		catch (Exception e)
+		{
 			//if any excpetion comes during execute of try block, catch will excute
 			e.printStackTrace();
 			return false;
@@ -44,31 +66,20 @@ public class ContactDAOImpl implements ContactDAO {
 	}
 
 
-	public boolean delete(int id) {
-		try
-		{
-		sessionFactory.getCurrentSession().delete(getContactById(id));
-		//tx = sessionFactory.getCurrentSession().getTransaction();
-		}catch (Exception e) {
-			//if any excpetion comes during execute of try block, catch will excute
-			e.printStackTrace();
-			return false;
-		}
-		return true;
-	}
-
-
-	public List<Contact> list() {
+	@SuppressWarnings("unchecked")
+	public List<Contact> list()
+	{
 		return  sessionFactory.getCurrentSession().createQuery("from Contact").list();
 	}
 
 
-	public Contact getContactById(int id) {
+	public Contact getContactById(int id) 
+	{
 		
 		//get method get the date from user table based on primary key i.e., id
 		// and set it to User class
 		//like select * from user where id = ?
-	  return 	(Contact)  sessionFactory.getCurrentSession().get(Contact.class, id);
+		return 	(Contact)  sessionFactory.getCurrentSession().get(Contact.class, id);
 		
 	}
 	

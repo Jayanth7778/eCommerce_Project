@@ -25,10 +25,13 @@ import com.niit.shoppingcart.domain.User;
 @Configuration
 @ComponentScan("com.niit.shoppingcart")
 @EnableTransactionManagement
-public class ApplicationContextConfig {
+
+public class ApplicationContextConfig
+{
 
 	@Bean(name = "dataSource")
-	public DataSource getH2DataSource() {
+	public DataSource getH2DataSource()
+	{
 
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
@@ -41,8 +44,11 @@ public class ApplicationContextConfig {
 	}
 
 	
-	private Properties getHibernateProperties() {
+	private Properties getHibernateProperties()
+	{
+		
 		Properties properties = new Properties();
+		
 		properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.hbm2ddl.auto", "update");
@@ -52,9 +58,12 @@ public class ApplicationContextConfig {
 
 	@Autowired
 	@Bean(name = "sessionFactory")
-	public SessionFactory getSessionFactory(DataSource dataSource) {
+	
+	public SessionFactory getSessionFactory(DataSource dataSource)
+	{
 
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
+		
 		sessionBuilder.addProperties(getHibernateProperties());
 		sessionBuilder.addAnnotatedClass(User.class);
 		sessionBuilder.addAnnotatedClass(Category.class);
@@ -66,14 +75,19 @@ public class ApplicationContextConfig {
 		sessionBuilder.scanPackages("com.niit");
 
 		return sessionBuilder.buildSessionFactory();
+		
 	}
 
 	@Autowired
 	@Bean(name = "transactionManager")
-	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
+	
+	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory)
+	{
+		
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
 
 		return transactionManager;
+		
 	}
 
 }
