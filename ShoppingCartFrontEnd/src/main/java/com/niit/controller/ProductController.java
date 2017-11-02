@@ -74,7 +74,7 @@ public class ProductController {
 		product.setId(Util.removeComman(product.getId()));
 		productDAO.saveOrUpdate(product);
 
-		FileUtil.upload(path, file, product.getId() + ".jpeg");
+		FileUtil.upload(path, file, product.getId() + ".jpg");
 
 		model.addAttribute("isAdminClickedProducts", "true");
 		model.addAttribute("isAdmin", "true");

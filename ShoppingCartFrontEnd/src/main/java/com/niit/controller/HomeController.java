@@ -60,7 +60,7 @@ public class HomeController
 	public ModelAndView goToHome()
 	{
 		ModelAndView mv = new ModelAndView("Home");
-		mv.addObject("message", "Thank you for visiting Shopping Cart! <br>");
+		mv.addObject("message", "Welcome to Online Shopping Cart! <br>");
 		mv.addObject("isUserAtHomePage", "true");
 		// model.addAttribute("message", "Thank you for visiting Shopping Cart!
 		// <br>");
@@ -97,7 +97,7 @@ public class HomeController
 	public ModelAndView goToHomeButton()
 	{
 		ModelAndView mv = new ModelAndView("Home");
-		mv.addObject("message", "Thank you for visiting Shopping Cart! <br>");
+		mv.addObject("message", "Welcome to Online Shopping Cart! <br>");
 		mv.addObject("isUserAtHomePage", "true");
 		
 		// get all categories

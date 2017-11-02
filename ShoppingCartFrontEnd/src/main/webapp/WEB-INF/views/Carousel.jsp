@@ -18,43 +18,36 @@
 						<li data-target="#carousel1" data-slide-to="2"></li>
 						<li data-target="#carousel1" data-slide-to="3"></li>
 						<li data-target="#carousel1" data-slide-to="4"></li>
-						<li data-target="#carousel1" data-slide-to="5"></li>
 					</ol>
 
 						<div class="carousel-inner">
 						<div class="item active">
 							<a href="showProductByCategory/Samsung">
-								<img src="<c:url value="/resources/images/mobile.jpg" />" alt="Image 1" style="width:100%;">
+								<img src="<c:url value="/resources/images/nokia8.jpg" />" alt="Image 1" style="width:100%;">
 							</a>
 						</div>
 						
 						<div class="item">
 							<a href="viewProduct/Sony">
-								<img src="<c:url value="/resources/images/television.jpg" />" alt="Image 2" style="width:100%;">
+								<img src="<c:url value="/resources/images/tv.jpg" />" alt="Image 2" style="width:100%;">
 							</a>
 						</div>
 						
 						<div class="item">
 							<a href="showProductByCategory/HP">
-								<img src="<c:url value="/resources/images/laptop.jpg" />" alt="Image 3" style="width:100%;">
+								<img src="<c:url value="/resources/images/macbook.jpg" />" alt="Image 3" style="width:100%;">
 							</a>
 						</div>
-						
-						<div class="item">
-							<a href="showProductByCategory/Godrej">
-								<img src="<c:url value="/resources/images/refrigerator.jpg" />" alt="Image 4" style="width:100%;">
-							</a>
-						</div>
-						
+				
 						<div class="item">
 							<a href="showProductByCategory/LG">
-								<img src="<c:url value="/resources/images/washingmachine.jpg" />" alt="Image 5" style="width:100%;">
+								<img src="<c:url value="/resources/images/earphones.jpg" />" alt="Image 4" style="width:100%;">
 							</a>
 						</div>
 						
 						<div class="item">
 							<a href="showProductByCategory/AC">
-								<img src="<c:url value="/resources/images/ac.jpg" />" alt="Image 6" style="width:100%;">
+								<img src="<c:url value="/resources/images/ac.jpg" />" alt="Image 5" style="width:100%;">
 							</a>
 						</div>
 
