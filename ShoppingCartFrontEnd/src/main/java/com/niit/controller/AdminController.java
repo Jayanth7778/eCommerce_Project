@@ -77,7 +77,8 @@ public class AdminController
 	
 	
 	/*@RequestMapping("/manageProducts")
-	public String manageProducts(Model model) {
+	public String manageProducts(Model model)
+	 {
 		log.debug("Starting of the method manageProducts");
 		model.addAttribute("isAdminClickedProducts", "true");
 		model.addAttribute("isAdmin", "true");
