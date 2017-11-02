@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.niit.shoppingcart.domain.Category;
 
-public interface CategoryDAO {
+public interface CategoryDAO
+{
 	
 	//create category
 	public boolean save(Category category);

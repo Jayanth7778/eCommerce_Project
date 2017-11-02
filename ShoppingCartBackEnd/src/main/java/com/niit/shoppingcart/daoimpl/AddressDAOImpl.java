@@ -82,6 +82,7 @@ public class AddressDAOImpl implements AddressDAO
 		{
 			sessionFactory.getCurrentSession().delete(getAddressById(id));
 		} 
+		
 		catch (Exception e)
 		{
 			// if any exception comes during execute of try block, catch will
@@ -90,6 +91,7 @@ public class AddressDAOImpl implements AddressDAO
 			e.printStackTrace();
 			return false;
 		}
+		
 		return true;
 	}
 

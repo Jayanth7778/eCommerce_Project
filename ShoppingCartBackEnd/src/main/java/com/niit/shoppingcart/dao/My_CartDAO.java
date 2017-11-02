@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.niit.shoppingcart.domain.My_Cart;
 
-public interface My_CartDAO {
+public interface My_CartDAO
+{
 	
 	public boolean save(My_Cart my_Cart);
 

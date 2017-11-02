@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.niit.shoppingcart.domain.User;
 
-public interface UserDAO {
+public interface UserDAO
+{
 	
 	
 	// create/register  - save
@@ -26,19 +27,4 @@ public interface UserDAO {
 	
 	public User get(String id);
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }

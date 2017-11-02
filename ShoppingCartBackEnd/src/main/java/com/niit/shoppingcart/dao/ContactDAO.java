@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.niit.shoppingcart.domain.Contact;
 
-public interface ContactDAO {
+public interface ContactDAO
+{
 	
 	
 	public  boolean save(Contact contact);

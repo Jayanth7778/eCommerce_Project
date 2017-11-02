@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.niit.shoppingcart.domain.Supplier;
 
-public interface SupplierDAO {
+public interface SupplierDAO 
+{
 
 	public boolean save(Supplier supplier);
 

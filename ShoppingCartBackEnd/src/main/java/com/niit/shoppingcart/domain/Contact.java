@@ -9,7 +9,8 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Component
-public class Contact {
+public class Contact
+{
 	@Id
 	@GeneratedValue
 	private int id;
@@ -19,43 +20,53 @@ public class Contact {
 	private String message;
 	
 
-	public int getId() {
+	public int getId()
+	{
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(int id) 
+	{
 		this.id = id;
 	}
 
-	public String getName() {
+	public String getName()
+	{
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(String name)
+	{
 		this.name = name;
 	}
 
-	public String getContact() {
+	public String getContact()
+	{
 		return contact;
 	}
 
-	public void setContact(String contact) {
+	public void setContact(String contact)
+	{
 		this.contact = contact;
 	}
 
-	public String getEmail() {
+	public String getEmail()
+	{
 		return email;
 	}
 
-	public void setEmail(String email) {
+	public void setEmail(String email)
+	{
 		this.email = email;
 	}
 
-	public String getMessage() {
+	public String getMessage()
+	{
 		return message;
 	}
 
-	public void setMessage(String message) {
+	public void setMessage(String message)
+	{
 		this.message = message;
 	}
 

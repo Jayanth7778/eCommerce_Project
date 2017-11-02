@@ -13,7 +13,8 @@ import org.springframework.web.multipart.MultipartFile;
 @Entity
 @Table(name = "Product")
 @Component
-public class Product {
+public class Product
+{
 
 	@Id
 	private String id;
@@ -38,83 +39,103 @@ public class Product {
 	@Transient
 	private MultipartFile image;
 
-	public String getId() {
+	public String getId()
+	{
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(String id)
+	{
 		this.id = id;
 	}
 
-	public String getName() {
+	public String getName()
+	{
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(String name)
+	{
 		this.name = name;
 	}
 
-	public String getDescription() {
+	public String getDescription()
+	{
 		return description;
 	}
 
-	public void setDescription(String description) {
+	public void setDescription(String description)
+	{
 		this.description = description;
 	}
 
-	public double getPrice() {
+	public double getPrice()
+	{
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(double price)
+	{
 		this.price = price;
 	}
 
-	public int getQuantity() {
+	public int getQuantity()
+	{
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(int quantity)
+	{
 		this.quantity = quantity;
 	}
 
-	public String getCategory_id() {
+	public String getCategory_id()
+	{
 		return category_id;
 	}
 
-	public void setCategory_id(String category_id) {
+	public void setCategory_id(String category_id)
+	{
 		this.category_id = category_id;
 	}
 
-	public String getSupplier_id() {
+	public String getSupplier_id()
+	{
 		return supplier_id;
 	}
 
-	public void setSupplier_id(String supplier_id) {
+	public void setSupplier_id(String supplier_id)
+	{
 		this.supplier_id = supplier_id;
 	}
 
-	public Category getCategory() {
+	public Category getCategory() 
+	{
 		return category;
 	}
 
-	public void setCategory(Category category) {
+	public void setCategory(Category category) 
+	{
 		this.category = category;
 	}
 
-	public Supplier getSupplier() {
+	public Supplier getSupplier() 
+	{
 		return supplier;
 	}
 
-	public void setSupplier(Supplier supplier) {
+	public void setSupplier(Supplier supplier)
+	{
 		this.supplier = supplier;
 	}
 
-	public MultipartFile getImage() {
+	public MultipartFile getImage()
+	{
 		return image;
 	}
 
-	public void setImage(MultipartFile image) {
+	public void setImage(MultipartFile image)
+	{
 		this.image = image;
 	}
 

@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.niit.shoppingcart.domain.Product;
 
-public interface ProductDAO {
+public interface ProductDAO 
+{
 
 	public boolean saveOrUpdate(Product product);
 

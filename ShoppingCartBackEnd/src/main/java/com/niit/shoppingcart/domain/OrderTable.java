@@ -10,7 +10,8 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Component
-public class OrderTable {
+public class OrderTable
+{
 
 	@Id
 	@GeneratedValue
@@ -19,28 +20,36 @@ public class OrderTable {
 	private String status;
 	private Date date_ordered;
 	
-	public int getId() {
+	public int getId()
+	{
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(int id) 
+	{
 		this.id = id;
 	}
-	public String getUser_id() {
+	public String getUser_id()
+	{
 		return user_id;
 	}
-	public void setUser_id(String user_id) {
+	public void setUser_id(String user_id)
+	{
 		this.user_id = user_id;
 	}
-	public String getStatus() {
+	public String getStatus() 
+	{
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(String status)
+	{
 		this.status = status;
 	}
-	public Date getDate_ordered() {
+	public Date getDate_ordered() 
+	{
 		return date_ordered;
 	}
-	public void setDate_ordered(Date date_ordered) {
+	public void setDate_ordered(Date date_ordered) 
+	{
 		this.date_ordered = date_ordered;
 	}
 	
