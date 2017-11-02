@@ -13,7 +13,8 @@ import com.niit.shoppingcart.dao.ContactDAO;
 import com.niit.shoppingcart.domain.Contact;
 
 @Controller
-public class ContactUsController {
+public class ContactUsController
+{
 	
 	private static Logger log = LoggerFactory.getLogger(UserController.class);
 

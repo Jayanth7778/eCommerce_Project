@@ -29,7 +29,8 @@ import com.niit.util.Util;
 
 
 @Controller
-public class ProductController {
+public class ProductController
+{
 
 	private static Logger log = LoggerFactory.getLogger(ProductController.class);
 
@@ -83,13 +84,17 @@ public class ProductController {
 		model.addAttribute("product", new Product());
 		model.addAttribute("categoryList", this.categoryDAO.list());
 		model.addAttribute("category", new Category());
+		
 		log.debug("Ending of the method add Product");
+		
 		return "Home";
 	}
 
 	@RequestMapping("/manageProducts")
-	public String manageProducts(Model model) {
+	public String manageProducts(Model model)
+	{
 		log.debug("Starting of the method manageProducts");
+		
 		model.addAttribute("isAdminClickedProducts", "true");
 		model.addAttribute("isAdmin", "true");
 		model.addAttribute("product", product);
@@ -98,35 +103,44 @@ public class ProductController {
 		model.addAttribute("supplierList", supplierDAO.list());
 		model.addAttribute("category", category);
 		model.addAttribute("categoryList", categoryDAO.list());
+		
 		session.setAttribute("isUserLoggedIn", "false");
 		log.debug("Ending of the method manageProducts");
+		
 		return "Home";
 	}
 	
 	@RequestMapping("/viewProduct")
-	public String viewProductHome(Model model) {
+	public String viewProductHome(Model model)
+	{
 		model.addAttribute("isUserSelectedProduct", "true");
 		return "Home";
 		
 	}
 	
 	@RequestMapping("/viewProduct/{id}")
-	public String viewProduct(@PathVariable("id") String id, Model model) {
+	public String viewProduct(@PathVariable("id") String id, Model model)
+	{
 		session.setAttribute("selectedProduct", productDAO.getProductById(id));
 		return "redirect:/viewProduct";
 	}
 
 	// Delete Product
 	@RequestMapping("/manage-product-delete/{id}")
-	public String deleteProduct(@PathVariable("id") String id, Model model) {
+	public String deleteProduct(@PathVariable("id") String id, Model model)
+	{
 		log.debug("Starting of the method deleteProduct");
-		try {
+		try 
+		{
 			productDAO.delete(id);
 			model.addAttribute("message", "Successfully deleted");
-		} catch (Exception e) {
+		}
+		catch (Exception e)
+		{
 			model.addAttribute("message", e.getMessage());
 			e.printStackTrace();
 		}
+		
 		log.debug("ending of method deleteProduct");
 		return "redirect:/manageProducts";
 
@@ -135,34 +149,47 @@ public class ProductController {
 	
 	// Edit Products
 	@RequestMapping("/manage-product-edit/{id}")
-	public String editProduct(@PathVariable("id") String id, Model model) {
+	public String editProduct(@PathVariable("id") String id, Model model)
+	{
 		log.debug("Starting of the method editProduct");
+		
 		product = productDAO.getProductById(id);
 		model.addAttribute("product", product);
+		
 		log.debug("Ending of the method editProduct");
+		
 		return "redirect:/manageProducts";
 	}
 
 	// Get select product details
 	@RequestMapping("/manage-product-get/{id}")
-	public ModelAndView getSelectedProduct(@PathVariable("id") String id, RedirectAttributes redirectAttributes) {
+	public ModelAndView getSelectedProduct(@PathVariable("id") String id, RedirectAttributes redirectAttributes)
+	{
 		log.debug("Starting of the method getSelectedProduct");
+		
 		ModelAndView mv = new ModelAndView("redirect:/");
+		
 		redirectAttributes.addFlashAttribute("selectedProduct", productDAO.getProductById(id));
+		
 		log.debug("ending of method getSelectedProduct");
+		
 		return mv;
 	}
 	
 	@RequestMapping("/showProductByCategory/{category_id}")
-	public String showProductByCategory(@PathVariable("category_id") String category_id, Model model){
-			session.setAttribute("selectedCategoryProducts", productDAO.getAllProductsByCategoryId(category_id));
-			session.setAttribute("product",product);
-			model.addAttribute("isUserClickedProductByCategory", "true");
+	public String showProductByCategory(@PathVariable("category_id") String category_id, Model model)
+	{
+		session.setAttribute("selectedCategoryProducts", productDAO.getAllProductsByCategoryId(category_id));
+		session.setAttribute("product",product);
+		
+		model.addAttribute("isUserClickedProductByCategory", "true");
+		
 		return "redirect:/productByCategory";
 	}
 	
 	@RequestMapping("/productByCategory")
-	public String productByCategory(Model model){
+	public String productByCategory(Model model)
+	{
 		model.addAttribute("isUserClickedProductByCategory", "true");
 		return "Home";
 

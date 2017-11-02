@@ -25,7 +25,8 @@ import com.niit.shoppingcart.domain.Product;
 import com.niit.shoppingcart.domain.Supplier;
 
 @Controller
-public class SpringSecurityController {
+public class SpringSecurityController 
+{
 
 	public static Logger log = LoggerFactory.getLogger(SpringSecurityController.class);
 
@@ -55,17 +56,21 @@ public class SpringSecurityController {
 	private My_Cart myCart;
 
 	@RequestMapping(value = "/loginError", method = RequestMethod.GET)
-	public String loginError(Model model) {
+	public String loginError(Model model)
+	{
 		log.debug("Starting of the method loginError");
 		session.setAttribute("errorLoginMessage", "Invalid Credentials.  Please try again.");
+		
 		// model.addAttribute("invalidCredentials", "true");
+		
 		log.debug("Ending of the method loginError");
 		return "redirect:/Login";
 
 	}
 
 	@RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
-	public String accessDenied(Model model) {
+	public String accessDenied(Model model)
+	{
 		log.debug("Starting of the method accessDenied");
 		model.addAttribute("errorMessage", "You are not authorized to access this page");
 
@@ -75,7 +80,8 @@ public class SpringSecurityController {
 	}
 
 	@RequestMapping(value = "/checkRole", method = RequestMethod.GET)
-	public ModelAndView checkRole(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ModelAndView checkRole(HttpServletRequest request, HttpServletResponse response) throws Exception
+	{
 		log.debug("starting of the method validate");
 		ModelAndView mv = new ModelAndView("Home");
 		// session = request.getSession(true);
@@ -96,36 +102,48 @@ public class SpringSecurityController {
 		session.setAttribute("loggedInUser", userID);
 		session.setAttribute("loggedInUserID", userID);
 
-		if (request.isUserInRole("ROLE_ADMIN")) {
+		if (request.isUserInRole("ROLE_ADMIN"))
+		{
 			log.debug("You are admin");
 			mv.addObject("isAdmin", "true");
+			
 			session.setAttribute("role", "ROLE_ADMIN");
 			session.setAttribute("isAdmin", true);
+			
 			mv.addObject("isUserAtHomePage", "false");
 
-		} else {
+		} 
+		else 
+		{
 
 			log.debug("You are a customer");
+			
 			session.setAttribute("isAdmin", false);
 			session.setAttribute("isUserLoggedIn", "true");
 			session.setAttribute("myCart", myCart);
+			
 			mv.addObject("isAdmin", "false");
+			
 			session.setAttribute("role", "ROLE_USER");
 			session.setAttribute("isUserLoggedIn", "true");
 			session.setAttribute("loggedInUserID",userID);
+			
 			String loggedInUserID = (String) session.getAttribute("loggedInUserID");
 			int cartSize = cartDAO.list(loggedInUserID).size();
 			session.setAttribute("cartSize", cartSize);
+			
 			mv.addObject("isUserAtHomePage", "true");
 			
 
 		}
+		
 		log.debug("Ending of the method validate");
 		return mv;
 	}
 
 	@RequestMapping("/secure_logout")
-	public ModelAndView secureLogout() {
+	public ModelAndView secureLogout()
+	{
 		
 		session.invalidate();
 

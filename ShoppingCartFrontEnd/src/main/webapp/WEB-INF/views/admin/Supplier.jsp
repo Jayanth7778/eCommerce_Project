@@ -17,18 +17,21 @@
 			<div class="h3">Update Supplier</div>
 
 				<form class="form-horizontal" action="manage-supplier-update" method="get">
+				
 					<div class="form-group">
 						<label class="control-label col-sm-3" for="cId">Supplier Id:</label>
 						<div class="col-sm-9">
 							<input type="text" class="form-control" id="cId" placeholder="Enter Supplier Id" name="cId" value="${selectedSupplier.id}" pattern=".{5,15}" title="Supplier Id must have 5 to 15 characters" required readonly>
 						</div>
 					</div>
+					
 					<div class="form-group">
 						<label class="control-label col-sm-3" for="cName">Supplier Name:</label>
 						<div class="col-sm-9">
 							<input type="text" class="form-control" id="cName" placeholder="Enter Supplier Name" name="cName" value="${selectedSupplier.name}" pattern=".{5,40}" title="Supplier Name must have 5 to 40 characters" required>
 						</div>
 					</div>
+					
 					<div class="form-group">
 						<label class="control-label col-sm-3" for="cAddress">Supplier Address:</label>
 						<div class="col-sm-9">
@@ -41,8 +44,11 @@
 							<button type="submit" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update Supplier</button>
 						</div>
 					</div>
+					
 				</form>
+				
 			</div>
+			
 		</c:if>
 
 		<c:if test="${!isAdminClickedManageSupplierEdit=='true'}">
@@ -56,26 +62,32 @@
 							<input type="text" class="form-control" id="sId" placeholder="Enter Supplier Id" name="sId" required>
 						</div>
 					</div>
+					
 					<div class="form-group">
 						<label class="control-label col-sm-3" for="sName">Supplier Name:</label>
 						<div class="col-sm-9">
 							<input type="text" class="form-control" id="sName" placeholder="Enter Supplier Name" name="sName" required>
 						</div>
 					</div>
+					
 					<div class="form-group">
 						<label class="control-label col-sm-3" for="sAddress">Supplier Address:</label>
 						<div class="col-sm-9">
 							<input type="text" class="form-control" id="sAddress" placeholder="Enter Supplier Address" name="sAddress" required>
 						</div>
 					</div>
+					
 
 					<div class="form-group">
 						<div class="col-sm-offset-3 col-sm-9">
 							<button type="submit" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> Create Supplier</button>
 						</div>
 					</div>
+					
 				</form>
+				
 			</div>
+			
 		</c:if>
 
 
@@ -92,6 +104,7 @@
 						<td>Action</td>
 					</tr>
 				</thead>
+				
 				<c:forEach var="supplier" items="${supplierList}">
 					<tr>
 						<td>${supplier.id}</td>
@@ -99,11 +112,15 @@
 						<td>${supplier.address}</td>
 						<td><a href="manage-supplier-delete/${supplier.id}" class="btn btn-danger"><i class="fa fa-trash-o fa-lg"></i> Delete</a> <a href="manage-supplier-edit/${supplier.id}" class="btn btn-info"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a></td>
 					</tr>
+					
 				</c:forEach>
+				
 			</table>
+			
 		</div>
 
 	</div>
 
 </body>
+
 </html>
