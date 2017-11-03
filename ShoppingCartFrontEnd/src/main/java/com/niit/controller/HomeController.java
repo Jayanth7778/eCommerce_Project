@@ -60,9 +60,10 @@ public class HomeController
 	public ModelAndView goToHome()
 	{
 		ModelAndView mv = new ModelAndView("Home");
+		
 		mv.addObject("message", "Welcome to Online Shopping Cart! <br>");
 		mv.addObject("isUserAtHomePage", "true");
-		// model.addAttribute("message", "Thank you for visiting Shopping Cart!
+		// model.addAttribute("message", "Welcome to Online Shopping Cart!
 		// <br>");
 
 		// get all categories
