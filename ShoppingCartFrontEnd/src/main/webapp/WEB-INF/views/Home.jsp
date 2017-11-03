@@ -109,11 +109,7 @@
 	</c:if>
 
 	
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+	
 	<!-- Display Footer -->
 	<jsp:include page="Footer.jsp"></jsp:include>
 
