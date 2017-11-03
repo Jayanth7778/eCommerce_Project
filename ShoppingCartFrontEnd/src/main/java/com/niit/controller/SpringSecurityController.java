@@ -99,6 +99,7 @@ public class SpringSecurityController
 		
 		
 		String userID = auth.getName();
+		
 		session.setAttribute("loggedInUser", userID);
 		session.setAttribute("loggedInUserID", userID);
 
@@ -129,6 +130,7 @@ public class SpringSecurityController
 			session.setAttribute("loggedInUserID",userID);
 			
 			String loggedInUserID = (String) session.getAttribute("loggedInUserID");
+			
 			int cartSize = cartDAO.list(loggedInUserID).size();
 			session.setAttribute("cartSize", cartSize);
 			

@@ -41,12 +41,12 @@
 									
 								<c:if test="${isAdmin=='true'}">
 									<a href="secure_logout" class="btn btn-success">Login as user to add to cart <i class="fa fa-cart-plus" aria-hidden="true"></i>
-								</a>
+									</a>
 								</c:if>
 									
 								<c:if test="${!isUserLoggedIn=='true' && !isAdmin =='true'}">
 									<a href="Login" class="btn btn-success">Login to add to cart <i class="fa fa-cart-plus" aria-hidden="true"></i>
-								</a>
+									</a>
 									
 								</c:if>
 									
