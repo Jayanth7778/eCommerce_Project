@@ -60,9 +60,10 @@ public class ProductController
 	
 	// Add or Update Product
 	@PostMapping("/manage-product-add")
-	public String addPorduct(@ModelAttribute("product") Product product, @RequestParam("image") MultipartFile file,
-			Model model) {
+	public String addPorduct(@ModelAttribute("product") Product product, @RequestParam("image") MultipartFile file,Model model)
+	{
 		log.debug("Starting of method addProduct");
+		
 		Category category = categoryDAO.getCategoryByName(product.getCategory().getName());
 		Supplier supplier = supplierDAO.getSupplierByName(product.getSupplier().getName());
 
