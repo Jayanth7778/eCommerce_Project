@@ -97,6 +97,7 @@ public class HomeController
 	public ModelAndView goToHomeButton()
 	{
 		ModelAndView mv = new ModelAndView("Home");
+		
 		mv.addObject("message", "Welcome to Online Shopping Cart! <br>");
 		mv.addObject("isUserAtHomePage", "true");
 		
@@ -134,6 +135,7 @@ public class HomeController
 
 		Long currentTime = System.currentTimeMillis();
 		Date currentDate = new Date(currentTime);
+		
 		return "Home";
 	}
 	
@@ -141,6 +143,7 @@ public class HomeController
 	public ModelAndView userSignOut() 
 	{
 		log.debug("Signout Initiated");
+		
 		ModelAndView mv = new ModelAndView("redirect:/");
 		
 		session.setAttribute("isUserLoggedIn", "false");
@@ -154,6 +157,7 @@ public class HomeController
 	{
 		model.addAttribute("isUserClickedRegistration", "true");
 		model.addAttribute("isUserAtHomePage", "false");
+		
 		return "Home";
 	}
 
@@ -161,6 +165,7 @@ public class HomeController
 	public String mainPage(Model model) 
 	{
 		model.addAttribute("isUserClickedMain", "true");
+		
 		return "Home";
 	}
 
@@ -169,6 +174,7 @@ public class HomeController
 	{
 		model.addAttribute("isUserClickedContactUs", "true");
 		model.addAttribute("isUserAtHomePage", "false");
+		
 		return "Home";
 	}
 }
