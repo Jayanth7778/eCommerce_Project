@@ -74,8 +74,7 @@ public class ProductDAOImpl implements ProductDAO
 
 	public Product getProductByName(String name)
 	{
-		return (Product) sessionFactory.getCurrentSession().createQuery("from Product where name = ?")
-				.setString(0, name).uniqueResult();
+		return (Product) sessionFactory.getCurrentSession().createQuery("from Product where name = ?").setString(0, name).uniqueResult();
 	}
 
 	@SuppressWarnings("unchecked")
